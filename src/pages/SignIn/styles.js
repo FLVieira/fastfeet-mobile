@@ -1,16 +1,17 @@
 import styled from 'styled-components/native';
-import { Image } from 'react-native';
 
 import Input from '~/components/Input';
 import Button from '~/components/Button';
 
 export const Container = styled.View`
-  background-color: #7159c1;
+  background-color: #9751ed;
   flex: 1;
   justify-content: center;
   align-items: center;
-  padding: 0 30px;
+  padding: 0px 30px;
 `;
+
+export const LogoContainer = styled.View``;
 
 export const Form = styled.View`
   align-self: stretch;

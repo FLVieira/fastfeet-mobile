@@ -1,7 +1,7 @@
-export function signInRequest(id) {
+export function signInRequest(id, navigation) {
   return {
     type: '@user/SIGN_IN_REQUEST',
-    payload: { id },
+    payload: { id, navigation },
   };
 }
 

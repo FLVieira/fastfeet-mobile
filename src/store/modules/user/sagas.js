@@ -6,10 +6,10 @@ import api from '~/services/api';
 
 export function* signInRequest({ payload }) {
   try {
-    const { id } = payload;
+    const { id, navigation } = payload;
     const response = yield call(api.get, `/deliverymen/${id}`);
-    Alert.alert('Sucesso', 'Perfil atualizado com sucesso!');
     yield put(userActions.signInSuccess(response.data));
+    navigation.navigate('Dashboard');
   } catch (err) {
     Alert.alert(
       'Erro no login',

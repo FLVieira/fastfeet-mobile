@@ -5,9 +5,15 @@ import Logo from '~/assets/images/fastfeet-logo.svg';
 
 import * as userActions from '~/store/modules/user/actions';
 
-import { Container, Form, FormInput, SubmitButton } from './styles';
+import {
+  Container,
+  Form,
+  FormInput,
+  SubmitButton,
+  LogoContainer,
+} from './styles';
 
-export default function SignIn() {
+export default function SignIn({ navigation }) {
   const dispatch = useDispatch();
 
   const [idValue, setIdValue] = useState('');
@@ -15,11 +21,15 @@ export default function SignIn() {
   const loading = useSelector((state) => state.user.loading);
 
   function handleSubmit() {
-    dispatch(userActions.signInRequest(idValue));
+    setIdValue('');
+    dispatch(userActions.signInRequest(idValue, navigation));
   }
 
   return (
     <Container>
+      <LogoContainer>
+        <Logo width={240} height={55} />
+      </LogoContainer>
       <Form>
         <FormInput
           icon="account-circle"
