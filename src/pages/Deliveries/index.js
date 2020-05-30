@@ -3,10 +3,10 @@ import { Text } from 'react-native';
 
 import { Container } from './styles';
 
-export default function Dashboard() {
+export default function Deliveries() {
   return (
     <Container>
-      <Text>Oi neto</Text>
+      <Text>Oi deliveries</Text>
     </Container>
   );
 }
