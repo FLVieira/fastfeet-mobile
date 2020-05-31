@@ -121,7 +121,13 @@ export default function DeliveryManager({ route, navigation }) {
             </DatesInfo>
           </DeliveryInfo>
           <OptionsContainer>
-            <IconInfo onPress={() => {}}>
+            <IconInfo
+              onPress={() =>
+                navigation.navigate('DeliveryProblem', {
+                  id: data.id,
+                })
+              }
+            >
               <Icon name="cancel" size={26} color="#fc0339" />
               <IconText>Informar Problema</IconText>
             </IconInfo>
