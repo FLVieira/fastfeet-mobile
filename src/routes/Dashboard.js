@@ -24,7 +24,7 @@ const tabBarOptions = {
 
 const deliveriesOptions = {
   title: 'Entregas',
-  tabBarIcon: ({ color }) => <Icon name="menu" size={30} color={color} />,
+  tabBarIcon: ({ color }) => <Icon name="reorder" size={30} color={color} />,
 };
 
 const profileOptions = {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { StatusBar } from 'react-native';
 
 import Logo from '~/assets/images/fastfeet-logo.svg';
 
@@ -27,6 +28,7 @@ export default function SignIn({ navigation }) {
 
   return (
     <Container>
+      <StatusBar barStyle="light-content" backgroundColor="#9751ed" />
       <LogoContainer>
         <Logo width={240} height={55} />
       </LogoContainer>

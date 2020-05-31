@@ -17,3 +17,9 @@ export function signInFailure() {
     type: '@user/SIGN_IN_FAILURE',
   };
 }
+
+export function signOut() {
+  return {
+    type: '@user/SIGN_OUT',
+  };
+}
