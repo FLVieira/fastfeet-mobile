@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { StatusBar } from 'react-native';
 import Snackbar from 'react-native-snackbar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import axios from 'axios';
 import {
   HeaderContinuation,
   Background,
