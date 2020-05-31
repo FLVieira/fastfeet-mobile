@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Avatar } from 'react-native-elements';
 import { StatusBar, Text, View } from 'react-native';
@@ -45,10 +45,16 @@ export default function Deliveries() {
     return { ...state.user.profile };
   });
   const [packages, setPackages] = useState([]);
+  const [refreshing] = useState(false);
+  const [filter, setFilter] = useState('');
 
-  useEffect(() => {
+  const refreshList = useCallback(() => {
     async function loadDeliveries() {
-      let { data } = await api.get(`/deliveryman/${profile.id}/deliveries`);
+      let { data } = await api.get(`/deliveryman/${profile.id}/deliveries`, {
+        params: {
+          delivered: filter,
+        },
+      });
       data = data.map((pack) => {
         return {
           ...pack,
@@ -64,7 +70,11 @@ export default function Deliveries() {
       setPackages(data);
     }
     loadDeliveries();
-  }, [profile.id]);
+  }, [profile.id, filter]);
+
+  useEffect(() => {
+    refreshList();
+  }, [refreshList]);
 
   function handleLogout() {
     dispatch(signOut());
@@ -112,13 +122,19 @@ export default function Deliveries() {
           Entregas
         </Text>
         <Filter>
-          <FilterText active>Pendentes</FilterText>
-          <FilterText>Entregues</FilterText>
+          <TouchableOpacity onPress={() => setFilter('')}>
+            <FilterText active={filter === ''}>Pendentes</FilterText>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setFilter('true')}>
+            <FilterText active={filter === 'true'}>Entregues</FilterText>
+          </TouchableOpacity>
         </Filter>
       </DeliveryInfo>
       <Packages
         data={packages}
         keyExtractor={(item) => String(item.id)}
+        onRefresh={refreshList}
+        refreshing={refreshing}
         renderItem={({ item, index }) => (
           <Package>
             <PackageHeader>
