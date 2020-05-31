@@ -31,7 +31,7 @@ import { signOut } from '~/store/modules/user/actions';
 
 import api from '~/services/api';
 
-export default function Deliveries() {
+export default function Deliveries({ navigation }) {
   const dispatch = useDispatch();
   const profile = useSelector((state) => {
     if (state.user.profile.avatar === null) {
@@ -179,7 +179,11 @@ export default function Deliveries() {
                   {item.Recipient.city}
                 </Text>
               </View>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('DeliveryManager', { data: item })
+                }
+              >
                 <Text style={{ fontWeight: 'bold', color: '#9751ed' }}>
                   Ver detalhes
                 </Text>

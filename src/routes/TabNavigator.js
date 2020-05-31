@@ -2,10 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import Deliveries from '~/pages/Deliveries';
+import DeliveriesDashboard from './DeliveriesDashboard';
 import Profile from '~/pages/Profile';
-
-// <Icon name="menu" size={20} color={tintColor} />
 
 const Tab = createBottomTabNavigator();
 
@@ -22,7 +20,7 @@ const tabBarOptions = {
   size: 30,
 };
 
-const deliveriesOptions = {
+const deliveriesDashboardOptions = {
   title: 'Entregas',
   tabBarIcon: ({ color }) => <Icon name="reorder" size={30} color={color} />,
 };
@@ -39,8 +37,8 @@ export default function Dashboard() {
     <Tab.Navigator tabBarOptions={tabBarOptions}>
       <Tab.Screen
         name="Deliveries"
-        component={Deliveries}
-        options={deliveriesOptions}
+        component={DeliveriesDashboard}
+        options={deliveriesDashboardOptions}
       />
       <Tab.Screen name="Profile" component={Profile} options={profileOptions} />
     </Tab.Navigator>

@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import SignIn from '~/pages/SignIn';
-import Dashboard from './Dashboard';
+import TabNavigator from './TabNavigator';
 
 const Stack = createStackNavigator();
 
@@ -16,7 +16,7 @@ function Routes() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {isLoggedIn ? (
-          <Stack.Screen name="Dashboard" component={Dashboard} />
+          <Stack.Screen name="Dashboard" component={TabNavigator} />
         ) : (
           <Stack.Screen name="SignIn" component={SignIn} />
         )}
