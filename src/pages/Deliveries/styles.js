@@ -60,8 +60,7 @@ export const Package = styled.View`
 export const PackageHeader = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  width: 154px;
+  justify-content: flex-start;
 `;
 
 export const PackageProgress = styled.View`

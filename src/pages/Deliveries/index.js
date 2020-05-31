@@ -139,10 +139,17 @@ export default function Deliveries({ navigation }) {
           <Package>
             <PackageHeader>
               <DeliveryTruck width={40} height={40} fill="#9751ed" />
+              {/*
+// Fazer funcionalidade ná página inicial do lado do caminhao de retirar o pedido */}
               <Text
-                style={{ color: '#9751ed', fontSize: 15, fontWeight: 'bold' }}
+                style={{
+                  color: '#9751ed',
+                  paddingLeft: 5,
+                  fontSize: 15,
+                  fontWeight: 'bold',
+                }}
               >
-                Encomenda {index + 1}
+                Encomenda #{item.id}
               </Text>
             </PackageHeader>
             <PackageProgress>

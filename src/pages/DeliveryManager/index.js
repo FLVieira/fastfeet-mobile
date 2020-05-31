@@ -131,11 +131,23 @@ export default function DeliveryManager({ route, navigation }) {
               <Icon name="cancel" size={26} color="#fc0339" />
               <IconText>Informar Problema</IconText>
             </IconInfo>
-            <IconInfo onPress={() => {}}>
+            <IconInfo
+              onPress={() =>
+                navigation.navigate('ProblemsManager', {
+                  id: data.id,
+                })
+              }
+            >
               <Icon name="error" size={26} color="#ffff24" />
               <IconText>Vizualizar Problemas</IconText>
             </IconInfo>
-            <IconInfo onPress={() => {}}>
+            <IconInfo
+              onPress={() =>
+                navigation.navigate('ConfirmDelivery', {
+                  id: data.id,
+                })
+              }
+            >
               <Icon name="check-circle" size={26} color="#9751ed" />
               <IconText>Confirmar Entrega</IconText>
             </IconInfo>

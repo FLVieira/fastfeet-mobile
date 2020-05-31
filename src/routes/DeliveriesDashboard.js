@@ -6,6 +6,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Deliveries from '~/pages/Deliveries';
 import DeliveryManager from '~/pages/DeliveryManager';
 import DeliveryProblem from '~/pages/DeliveryManager/DeliveryProblem';
+import ProblemsManager from '~/pages/DeliveryManager/ProblemsManager';
+import ConfirmDelivery from '~/pages/DeliveryManager/ConfirmDelivery';
 
 const Stack = createStackNavigator();
 
@@ -43,6 +45,30 @@ export default function Manager({ navigation }) {
         component={DeliveryProblem}
         options={{
           title: 'Informar problema',
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Icon name="chevron-left" size={30} color="#fff" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="ProblemsManager"
+        component={ProblemsManager}
+        options={{
+          title: 'Vizualizar problemas',
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Icon name="chevron-left" size={30} color="#fff" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="ConfirmDelivery"
+        component={ConfirmDelivery}
+        options={{
+          title: 'Confirmar entrega',
           headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.goBack()}>
               <Icon name="chevron-left" size={30} color="#fff" />
