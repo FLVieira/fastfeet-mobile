@@ -28,6 +28,7 @@ export const InfoContainer = styled.View``;
 export const Preview = styled.Image`
   border-radius: 6px;
   height: 80%;
+  width: 100%;
 `;
 
 export const CameraButton = styled.TouchableOpacity`

@@ -60,6 +60,18 @@ export const Package = styled.View`
 export const PackageHeader = styled.View`
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+`;
+
+export const PackageHeaderInfo = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+`;
+
+export const PackageHeaderWithdrawal = styled.TouchableOpacity`
+  flex-direction: row;
+  align-items: center;
   justify-content: flex-start;
 `;
 

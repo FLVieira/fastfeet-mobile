@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { StatusBar, TextInput, Alert } from 'react-native';
+import { StatusBar, TextInput, Alert, Keyboard } from 'react-native';
+import Snackbar from 'react-native-snackbar';
 
 import {
   HeaderContinuation,
@@ -22,16 +23,24 @@ export default function DeliveryManager({ route }) {
 
   async function handleSubmit() {
     try {
+      Keyboard.dismiss();
       setLoading(true);
       await api.post(`/deliveryman/${deliverymanId}/problems/${id}`, {
         description,
       });
       setDescription('');
       setLoading(false);
-      Alert.alert('Sucesso', 'O problema foi enviado com sucesso!');
+
+      Snackbar.show({
+        text: 'O problema foi enviado com sucesso!',
+        duration: Snackbar.LENGTH_SHORT,
+        backgroundColor: '#79b791',
+      });
     } catch (err) {
-      Alert.alert('Erro', err.response.data.error);
+      Keyboard.dismiss();
       setLoading(false);
+      setDescription('');
+      Alert.alert('Erro', err.response.data.error);
     }
   }
 
@@ -43,6 +52,7 @@ export default function DeliveryManager({ route }) {
       <Container>
         <InfoContainer>
           <TextInput
+            returnKeyLabel="send"
             textAlignVertical="top"
             autoCorrect
             placeholder="Inclua aqui o problema que ocorreu na entrega."
